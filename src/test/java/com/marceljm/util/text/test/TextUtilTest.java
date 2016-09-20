@@ -3,7 +3,7 @@ package com.marceljm.util.text.test;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.marceljm.util.text.TextUtil;
+import com.marceljm.util.TextUtil;
 
 public class TextUtilTest {
 
