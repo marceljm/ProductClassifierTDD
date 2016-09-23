@@ -8,26 +8,23 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.marceljm.constant.InputFileEnum;
+
 public class FileConverter {
 
-	public static List<String> inputFileToStringList() throws IOException {
+	public static List<String> inputManyFilesToStringList() throws IOException {
 		String line;
 		List<String> list = new ArrayList<String>();
 
-		File fileDir = new File("src/main/resources/input.csv");
-		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(fileDir), "UTF8"));
-		while ((line = in.readLine()) != null) {
-			list.add(line);
+		for (InputFileEnum inputFile : InputFileEnum.values()) {
+			File fileDir = new File("src/main/resources/" + inputFile.toString().toLowerCase() + ".csv");
+			BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(fileDir), "UTF8"));
+			while ((line = in.readLine()) != null) {
+				list.add(line);
+			}
+			in.close();
 		}
-		in.close();
-
 		return list;
-	}
-
-	public static List<String> inputFilesToStringList() {
-		// String line;
-		// List<String> list = new ArrayList<String>();
-		return null;
 	}
 
 }

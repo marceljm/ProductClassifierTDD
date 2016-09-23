@@ -11,15 +11,9 @@ import com.marceljm.converter.FileConverter;
 public class FileConverterTest {
 
 	@Test
-	public void shouldConvertOneInputFileToStringList() throws IOException {
-		List<String> list = FileConverter.inputFileToStringList();
-		Assert.assertTrue(list.size() > 0);
-	}
-
-	@Test
-	public void shouldConvertManyInputFilesToStringList() {
-		List<String> list = FileConverter.inputFilesToStringList();
-		Assert.assertTrue(list.size() > 0);
+	public void shouldConvertManyInputFilesToStringList() throws IOException {
+		List<String> list = FileConverter.inputManyFilesToStringList();
+		Assert.assertTrue(list.size() > 1000000);
 	}
 
 }
