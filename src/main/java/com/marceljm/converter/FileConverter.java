@@ -12,7 +12,7 @@ import com.marceljm.constant.InputFileEnum;
 
 public class FileConverter {
 
-	public static List<String> inputManyFilesToStringList() throws IOException {
+	public List<String> inputManyFilesToStringList() throws IOException {
 		String line;
 		List<String> list = new ArrayList<String>();
 
@@ -20,7 +20,7 @@ public class FileConverter {
 			File fileDir = new File("src/main/resources/" + inputFile.toString().toLowerCase() + ".csv");
 			BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(fileDir), "UTF8"));
 			while ((line = in.readLine()) != null) {
-				list.add(line);
+				list.add(line + ";\"" + inputFile.getValue() + "\"");
 			}
 			in.close();
 		}

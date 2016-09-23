@@ -8,10 +8,13 @@ import com.marceljm.util.TextUtil;
 
 public class ProductConverter {
 
-	public static Product stringToProduct(String string) {
+	public Product stringToProduct(String string) {
 		Product product = new Product();
-		string = TextUtil.removeFirstAndLastQuotationsMarks(string);
+		TextUtil textUtil = new TextUtil();
+
+		string = textUtil.removeFirstAndLastQuotationsMarks(string);
 		String[] splitList = string.split("\";\"");
+
 		int lenght = splitList.length;
 		product.setId(lenght >= 1 ? splitList[0] : "");
 		product.setName(lenght >= 2 ? splitList[1] : "");
@@ -25,11 +28,11 @@ public class ProductConverter {
 		product.setSubCategory(lenght >= 10 ? splitList[9] : "");
 		product.setThirdCategory(lenght >= 11 ? splitList[10] : "");
 		product.setBrand(lenght >= 12 ? splitList[11] : "");
-		product.setStore(null);
+		product.setStore(lenght >= 13 ? splitList[12] : "");
 		return product;
 	}
 
-	public static List<Product> stringListToProductList(List<String> stringList) {
+	public List<Product> stringListToProductList(List<String> stringList) {
 		List<Product> productList = new ArrayList<Product>();
 		for (int i = 0; i < stringList.size(); i++) {
 			Product product = stringToProduct(stringList.get(i));

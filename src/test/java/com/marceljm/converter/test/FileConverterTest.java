@@ -12,7 +12,8 @@ public class FileConverterTest {
 
 	@Test
 	public void shouldConvertManyInputFilesToStringList() throws IOException {
-		List<String> list = FileConverter.inputManyFilesToStringList();
+		FileConverter fileConverter = new FileConverter();
+		List<String> list = fileConverter.inputManyFilesToStringList();
 		Assert.assertTrue(list.size() > 1000000);
 	}
 

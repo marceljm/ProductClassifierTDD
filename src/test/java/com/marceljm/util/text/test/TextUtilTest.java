@@ -9,7 +9,8 @@ public class TextUtilTest {
 
 	@Test
 	public void shouldRemoveFirstAndLastQuotationMarks() {
-		Assert.assertEquals(TextUtil.removeFirstAndLastQuotationsMarks("\"abcde\""), "abcde");
+		TextUtil textUtil = new TextUtil();
+		Assert.assertEquals(textUtil.removeFirstAndLastQuotationsMarks("\"abcde\""), "abcde");
 	}
 
 }
