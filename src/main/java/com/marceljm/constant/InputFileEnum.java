@@ -3,7 +3,7 @@ package com.marceljm.constant;
 public enum InputFileEnum {
 	BALAO("Balão da Informática"), 
 	CINTYLAR("Cintylar"), 
-	CISSA("Cissa Magazine"), 
+	CISSA("Cissa Magazines"), 
 	EFACIL("Efacil"), 
 	ELETROSHOPPING("Eletro Shopping"), 
 	FASTSHOP("Fastshop"), 
