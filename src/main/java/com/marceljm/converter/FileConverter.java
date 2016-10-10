@@ -11,7 +11,6 @@ import java.util.List;
 import com.marceljm.constant.InputFileEnum;
 import com.marceljm.entity.Product;
 import com.marceljm.util.list.ProductListUtil;
-import com.marceljm.util.text.TextUtil;
 
 public class FileConverter {
 
@@ -30,7 +29,7 @@ public class FileConverter {
 		return list;
 	}
 
-	public List<Product> convertMainFileToProductList() throws IOException {
+	public List<Product> convertMainFileToCompactProductList() throws IOException {
 		String line;
 		List<Product> list = new ArrayList<Product>();
 		ProductConverter productConverter = new ProductConverter();
@@ -42,7 +41,9 @@ public class FileConverter {
 		}
 		in.close();
 
-		list = new ProductListUtil().removeRepeatedProducts(list);
+		ProductListUtil productListUtil = new ProductListUtil();
+		list = productListUtil.removeRepeatedProducts(list);
+		list = productListUtil.removeProductsWithInvalidCategory(list);
 
 		return list;
 	}

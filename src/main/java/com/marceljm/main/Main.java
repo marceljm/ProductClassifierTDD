@@ -13,12 +13,12 @@ public class Main {
 		Calendar start = Calendar.getInstance();
 
 		FileConverter fileConverter = new FileConverter();
-		List<Product> productList = fileConverter.convertMainFileToProductList();
+		List<Product> productList = fileConverter.convertMainFileToCompactProductList();
 
 		System.out.println(productList.size());
-		// for (Product product : productList) {
-		// System.out.println(product.getMainCategory());
-		// }
+		for (Product product : productList) {
+			System.out.println(product.getPath());
+		}
 
 		Calendar end = Calendar.getInstance();
 

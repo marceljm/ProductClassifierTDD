@@ -21,7 +21,7 @@ public class FileConverterTest {
 	@Test
 	public void shouldConvertMainInputFileToProductList() throws IOException {
 		FileConverter fileConverter = new FileConverter();
-		List<Product> list = fileConverter.convertMainFileToProductList();
+		List<Product> list = fileConverter.convertMainFileToCompactProductList();
 		Assert.assertTrue(list.size() > 1000000);
 	}
 

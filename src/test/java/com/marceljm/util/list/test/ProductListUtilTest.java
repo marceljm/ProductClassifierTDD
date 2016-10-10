@@ -37,4 +37,23 @@ public class ProductListUtilTest {
 		Assert.assertEquals(productList.size(), 2);
 	}
 
+	@Test
+	public void shouldRemoveProductsWithInvalidCategory() {
+		ProductListUtil productListUtil = new ProductListUtil();
+		List<Product> productList = new ArrayList<Product>();
+
+		Product product1 = new Product();
+		product1.setPath("artes");
+
+		Product product2 = new Product();
+		product2.setPath("moveis / decoracao");
+
+		productList.add(product1);
+		productList.add(product2);
+
+		productList = productListUtil.removeProductsWithInvalidCategory(productList);
+
+		Assert.assertTrue(productList.size() == 1);
+	}
+
 }
